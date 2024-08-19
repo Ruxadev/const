@@ -1,2 +1,14 @@
-<h1>Materials#show</h1>
-<p>Find me in app/views/materials/show.html.erb</p>
+<h1><%= @material.name %></h1>
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title"><%= @material.name %></h5>
+    <p class="card-text">
+      <strong>Store:</strong> <%= @material.store %><br>
+      <strong>Estimated Value:</strong> <%= number_to_currency(@material.estimated_value) %><br>
+      <strong>Paid Value:</strong> <%= number_to_currency(@material.paid_value) %>
+    </p>
+    <%= link_to "Edit", edit_project_material_path(@project, @material), class: "btn btn-primary" %>
+    <%= link_to "Back", project_materials_path(@project), class: "btn btn-secondary" %>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<%= form_with(model: [project, material], local: true) do |form| %>
+  <% if material.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(material.errors.count, "error") %> prohibited this material from being saved:</h2>
+      <ul>
+        <% material.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :store, class: "form-label" %>
+    <%= form.text_field :store, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :estimated_value, class: "form-label" %>
+    <%= form.number_field :estimated_value, step: 0.01, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :paid_value, class: "form-label" %>
+    <%= form.number_field :paid_value, step: 0.01, class: "form-control" %>
+  </div>
+
+  <%= form.submit class: "btn btn-primary" %>
+  <%= link_to "Cancel", project_materials_path(project), class: "btn btn-secondary" %>
+<% end %>
