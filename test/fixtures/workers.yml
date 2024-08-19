@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  position: MyString
+  phone_number: MyString
+  estimated_labor_value: 9.99
+  paid_value: 9.99
+  construction_material_value: 9.99
+  worked_hours: 1
+  project: one
+
+two:
+  name: MyString
+  position: MyString
+  phone_number: MyString
+  estimated_labor_value: 9.99
+  paid_value: 9.99
+  construction_material_value: 9.99
+  worked_hours: 1
+  project: two
