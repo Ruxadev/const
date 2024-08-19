@@ -1,2 +1,16 @@
-<h1>Workers#show</h1>
-<p>Find me in app/views/workers/show.html.erb</p>
+<h1><%= @worker.name %></h1>
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title"><%= @worker.position %></h5>
+    <p class="card-text">
+      <strong>Phone Number:</strong> <%= @worker.phone_number %><br>
+      <strong>Estimated Labor Value:</strong> <%= number_to_currency(@worker.estimated_labor_value) %><br>
+      <strong>Paid Value:</strong> <%= number_to_currency(@worker.paid_value) %><br>
+      <strong>Material Value:</strong> <%= number_to_currency(@worker.construction_material_value) %><br>
+      <strong>Worked Hours:</strong> <%= @worker.worked_hours %>
+    </p>
+    <%= link_to "Edit", edit_project_worker_path(@project, @worker), class: "btn btn-primary" %>
+    <%= link_to "Back", project_workers_path(@project), class: "btn btn-secondary" %>
+  </div>
+</div>

@@ -1,2 +1,52 @@
-<h1>Workers#edit</h1>
-<p>Find me in app/views/workers/edit.html.erb</p>
+<h1><%= @worker.new_record? ? "New Worker" : "Edit Worker" %></h1>
+
+<%= form_with(model: [@project, @worker], local: true) do |form| %>
+  <% if @worker.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(@worker.errors.count, "error") %> prohibited this worker from being saved:</h2>
+      <ul>
+        <% @worker.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :position, class: "form-label" %>
+    <%= form.text_field :position, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :phone_number, class: "form-label" %>
+    <%= form.text_field :phone_number, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :estimated_labor_value, class: "form-label" %>
+    <%= form.number_field :estimated_labor_value, step: 0.01, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :paid_value, class: "form-label" %>
+    <%= form.number_field :paid_value, step: 0.01, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :construction_material_value, class: "form-label" %>
+    <%= form.number_field :construction_material_value, step: 0.01, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :worked_hours, class: "form-label" %>
+    <%= form.number_field :worked_hours, class: "form-control" %>
+  </div>
+
+  <%= form.submit class: "btn btn-primary" %>
+  <%= link_to "Cancel", project_workers_path(@project), class: "btn btn-secondary" %>
+<% end %>
