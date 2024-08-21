@@ -16,7 +16,7 @@ class MaterialsController < ApplicationController
   def create
     @material = @project.materials.build(material_params)
     if @material.save
-      redirect_to project_material_path(@project, @material), notice: 'Material was successfully created.'
+      redirect_to @project, notice: 'Material was successfully created.'
     else
       render :new
     end
@@ -27,7 +27,7 @@ class MaterialsController < ApplicationController
 
   def update
     if @material.update(material_params)
-      redirect_to project_material_path(@project, @material), notice: 'Material was successfully updated.'
+      redirect_to @project, notice: 'Material was successfully updated.'
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class MaterialsController < ApplicationController
 
   def destroy
     @material.destroy
-    redirect_to project_materials_path(@project), notice: 'Material was successfully destroyed.'
+    redirect_to @project, notice: 'Material was successfully destroyed.'
   end
 
   private
@@ -45,7 +45,7 @@ class MaterialsController < ApplicationController
   end
 
   def set_material
-    @material = @project.materials.find(params[:id])
+    @material = Project.find(params[:project_id])
   end
 
   def material_params

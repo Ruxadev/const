@@ -1,2 +1,65 @@
-<h1>Projects#show</h1>
-<p>Find me in app/views/projects/show.html.erb</p>
+<h1><%= @project.name %></h1>
+<p><%= @project.description %></p>
+
+<h2>Workers</h2>
+<%= link_to 'Add Worker', new_project_worker_path(@project), class: 'btn btn-primary' %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Position</th>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Estimated Labor Value</th>
+      <th>Paid Value</th>
+      <th>Material Value</th>
+      <th>Worked Hours</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @workers.each do |worker| %>
+      <tr>
+        <td><%= worker.position %></td>
+        <td><%= worker.name %></td>
+        <td><%= worker.phone_number %></td>
+        <td><%= worker.estimated_labor_value %></td>
+        <td><%= worker.paid_value %></td>
+        <td><%= worker.construction_material_value %></td>
+        <td><%= worker.worked_hours %></td>
+        <td>
+          <%= link_to 'Edit', edit_project_worker_path(@project, worker), class: 'btn btn-warning' %>
+          <%= link_to 'Delete', project_worker_path(@project, worker), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Materials</h2>
+<%= link_to 'Add Material', new_project_material_path(@project), class: 'btn btn-primary' %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @materials.each do |material| %>
+      <tr>
+        <td><%= material.name %></td>
+        <td><%= material.estimated_value %></td>
+        <td><%= material.paid_value %></td>
+        <td><%= number_to_currency(material.paid_value) %></td>
+        <td>
+          <%= link_to 'Edit', edit_project_material_path(@project, material), class: 'btn btn-warning' %>
+          <%= link_to 'Delete', project_material_path(@project, material), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Back to Projects', projects_path, class: 'btn btn-secondary' %>

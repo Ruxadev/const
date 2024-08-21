@@ -6,10 +6,12 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @workers = @project.workers
+    @materials = @project.materials
   end
 
   def new
-    @project = current_user.projects.build
+    @project = Project.new
   end
 
   def create

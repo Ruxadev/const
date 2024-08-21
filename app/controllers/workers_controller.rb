@@ -16,7 +16,7 @@ class WorkersController < ApplicationController
   def create
     @worker = @project.workers.build(worker_params)
     if @worker.save
-      redirect_to project_worker_path(@project, @worker), notice: 'Worker was successfully created.'
+      redirect_to @project, notice: 'Worker was successfully created.'
     else
       render :new
     end
@@ -27,7 +27,7 @@ class WorkersController < ApplicationController
 
   def update
     if @worker.update(worker_params)
-      redirect_to project_worker_path(@project, @worker), notice: 'Worker was successfully updated.'
+      redirect_to @project, notice: 'Worker was successfully updated.'
     else
       render :edit
     end
@@ -35,13 +35,13 @@ class WorkersController < ApplicationController
 
   def destroy
     @worker.destroy
-    redirect_to project_workers_path(@project), notice: 'Worker was successfully destroyed.'
+    redirect_to @project, notice: 'Worker was successfully destroyed.'
   end
 
   private
 
   def set_project
-    @project = current_user.projects.find(params[:project_id])
+    @project = Project.find(params[:project_id])
   end
 
   def set_worker
