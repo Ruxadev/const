@@ -15,8 +15,7 @@ gem 'bootstrap', '~> 5.3.0'
 gem 'sassc-rails'
 gem 'jquery-rails'
 gem 'jsbundling-rails'
-gem 'stimulus-rails'
-gem 'turbo-rails'
+gem 'webpacker'
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 
