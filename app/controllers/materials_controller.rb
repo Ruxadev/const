@@ -45,7 +45,7 @@ class MaterialsController < ApplicationController
   end
 
   def set_material
-    @material = Project.find(params[:project_id])
+    @material = @project.materials.find(params[:id])
   end
 
   def material_params

@@ -28,7 +28,7 @@
         <td><%= worker.worked_hours %></td>
         <td>
           <%= link_to 'Edit', edit_project_worker_path(@project, worker), class: 'btn btn-warning' %>
-          <%= link_to 'Delete', project_worker_path(@project, worker), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          <%= button_to 'Delete', project_worker_path(@project, worker), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
         </td>
       </tr>
     <% end %>
@@ -55,7 +55,7 @@
         <td><%= number_to_currency(material.paid_value) %></td>
         <td>
           <%= link_to 'Edit', edit_project_material_path(@project, material), class: 'btn btn-warning' %>
-          <%= link_to 'Delete', project_material_path(@project, material), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          <%= button_to 'Delete', project_material_path(@project, material), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
         </td>
       </tr>
     <% end %>

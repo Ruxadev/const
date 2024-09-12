@@ -1,4 +1,4 @@
-<%= form_with(url: project_material_path(@project, @material), local: true) do |form| %>
+<%= form_with(model: [@project, @material], local: true) do |form| %>
   <% if material.errors.any? %>
     <div class="alert alert-danger">
       <h2><%= pluralize(material.errors.count, "error") %> prohibited this material from being saved:</h2>
