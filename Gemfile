@@ -16,6 +16,7 @@ gem 'sassc-rails'
 gem 'jquery-rails'
 gem 'jsbundling-rails'
 gem 'webpacker'
+gem 'sass-rails'
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 
