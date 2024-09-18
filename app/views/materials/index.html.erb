@@ -22,7 +22,7 @@
         <td>
           <div class="d-flex justify">
           <%= link_to "View", project_material_path(@project, material), class: "btn btn-sm btn-outline-secondary" %>
-          <%= link_to "Edit", edit_project_material_path(@project, material), class: "btn btn-sm btn-outline-secondary" %>
+          <%= link_to "Edit", edit_project_material_path(@project, material), class: "btn btn-sm btn-outline-primary" %>
           <%= button_to "Delete", project_material_path(@project, material), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-outline-danger" %>
           </div>
         </td>
@@ -30,4 +30,6 @@
     <% end %>
   </tbody>
 </table>
-<%= link_to 'Back', project_path(@project), class: 'btn btn-secondary' %>
+<footer class="site-footer" style="margin-bottom: 100px;">
+  <%= link_to 'Back', project_path(@project), class: 'btn btn-secondary' %>
+</footer>
